@@ -1,45 +1,50 @@
-version: "3.9"
+name: Deploy React App via Docker (pnpm)
 
-services:
-  react-portfolio:
-    build: .
-    container_name: react-portfolio
-    restart: always
-    expose:
-      - "80"   # internal container port
-    networks:
-      - web
-    environment:
-      VIRTUAL_HOST: vtcoding.click,www.vtcoding.click
-      LETSENCRYPT_HOST: vtcoding.click,www.vtcoding.click
-      LETSENCRYPT_EMAIL: toikkanenville@gmail.com
-    restart: always
+# Trigger on push to main branch or manually
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # manual trigger
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy:alpine
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./certs:/etc/nginx/certs:rw
-    networks:
-      - web
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-  letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    container_name: letsencrypt
-    restart: always
-    depends_on:
-      - nginx-proxy
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./certs:/etc/nginx/certs:rw
-    networks:
-      - web
+    steps:
+      # 1️⃣ Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-networks:
-  web:
-    driver: bridge
+      # 2️⃣ Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 3️⃣ Optional: build Docker image locally (can skip if building on VPS)
+      - name: Build Docker image (optional)
+        run: docker build -t react-portfolio:latest .
+
+      # 4️⃣ Copy full repo to VPS
+      - name: Copy code to VPS
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          source: "./"
+          target: ${{ secrets.VPS_PATH }}
+
+      # 5️⃣ Deploy on VPS using docker compose
+      - name: Deploy with docker compose
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.VPS_PATH }}
+            # Stop and remove old containers, rebuild and restart
+            docker compose down
+            docker compose up -d --build
