@@ -10,15 +10,17 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-# Copy all code and build
+# Copy all source code
 COPY . .
+
+# Build Vite app
 RUN pnpm run build
 
-# Stage 2: nginx serve
+# Stage 2: serve with nginx
 FROM nginx:stable-alpine
 
-# Copy React build
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy Vite build (dist folder)
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Copy nginx config
 COPY nginx/conf.d/portfolio.conf /etc/nginx/conf.d/default.conf
