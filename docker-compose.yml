@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
   react-portfolio:
     build: .
     container_name: react-portfolio
     restart: always
     ports:
-      - "3000:80"  # maps VPS port 3000 to container port 80
+      - "80:80"   # map VPS port 80 to container port 80
