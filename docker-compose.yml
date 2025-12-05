@@ -13,6 +13,7 @@ services:
       VIRTUAL_HOST: vtcoding.click,www.vtcoding.click
       LETSENCRYPT_HOST: vtcoding.click,www.vtcoding.click
       LETSENCRYPT_EMAIL: toikkanenville@gmail.com
+    restart: always
 
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
