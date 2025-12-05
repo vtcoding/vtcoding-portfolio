@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch:  # allows manual trigger
 
 jobs:
   deploy:
@@ -20,23 +20,23 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
+      # Optional: build locally in Actions (can skip if building on VPS)
       - name: Build Docker image
         run: docker build -t react-portfolio:latest .
 
-      - name: Save Docker image
-        run: docker save react-portfolio:latest -o react-portfolio.tar
-
-      - name: Copy Docker image to VPS
+      # Copy repo to VPS
+      - name: Copy code to VPS
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
-          source: "react-portfolio.tar"
+          source: "./"
           target: ${{ secrets.VPS_PATH }}
 
-      - name: Load and run Docker image on VPS
+      # Deploy on VPS using docker-compose
+      - name: Deploy with docker-compose
         uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -45,6 +45,5 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.VPS_PATH }}
-            docker rm -f react-portfolio || true
-            docker load -i react-portfolio.tar
-            docker run -d --name react-portfolio -p 3000:80 react-portfolio:latest
+            docker-compose down
+            docker-compose up -d --build
