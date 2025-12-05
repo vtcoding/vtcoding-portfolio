@@ -22,7 +22,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t react-portfolio:latest .
 
-      - name: Save Docker image to tar
+      - name: Save Docker image
         run: docker save react-portfolio:latest -o react-portfolio.tar
 
       - name: Copy Docker image to VPS
@@ -46,4 +46,4 @@ jobs:
             cd ${{ secrets.VPS_PATH }}
             docker rm -f react-portfolio || true
             docker load -i react-portfolio.tar
-            docker run -d --name react-portfolio -p 80:80 react-portfolio:latest
+            docker run -d --name react-portfolio -p 3000:80 react-portfolio:latest
