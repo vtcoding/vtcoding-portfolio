@@ -1,7 +1,44 @@
+version: "3.9"
+
 services:
   react-portfolio:
     build: .
     container_name: react-portfolio
     restart: always
+    expose:
+      - "80"   # internal container port
+    networks:
+      - web
+    environment:
+      VIRTUAL_HOST: vtcoding.click,www.vtcoding.click
+      LETSENCRYPT_HOST: vtcoding.click,www.vtcoding.click
+      LETSENCRYPT_EMAIL: your-email@example.com
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:alpine
+    container_name: nginx-proxy
+    restart: always
     ports:
-      - "80:80"   # map VPS port 80 to container port 80
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs:rw
+    networks:
+      - web
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    restart: always
+    depends_on:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./certs:/etc/nginx/certs:rw
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
