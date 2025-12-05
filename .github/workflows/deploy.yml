@@ -45,5 +45,5 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.VPS_PATH }}
-            docker-compose down
-            docker-compose up -d --build
+            docker compose down
+            docker compose up -d --build
