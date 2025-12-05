@@ -12,6 +12,7 @@ const App = () => {
           <div className={styles.line}></div>
           <div className={styles.description}>
             A collection of my personal projects built for learning and experimentation, including technologies I use.
+            Scroll down to see more.
           </div>
         </div>
       </div>
@@ -91,9 +92,9 @@ const App = () => {
               </div>
             </div>
 
-            {/* Parkify */}
+            {/* ParkCheck */}
             <div className={styles.project}>
-              <div className={styles.projectTitle}>Parkify</div>
+              <div className={styles.projectTitle}>ParkCheck</div>
               <div className={`${styles.status} ${styles['status-planning']}`}>Status: planning</div>
               <div className={styles.projectDescription}>App for clarifying parking sign rules wherever you park</div>
               <div className={styles.projectTechnologies}>
