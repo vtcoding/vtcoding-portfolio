@@ -208,6 +208,20 @@
   transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+  .project .image {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: none;
+    height: 100%;
+  }
+  
+  .project:hover .image {
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
 .projectTitle,
 .status,
 .projectDescription,
@@ -344,6 +358,24 @@
   background-color: #222;
   height: 400px;
   box-sizing: border-box;
+  transition: opacity 0.5s ease;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .carouselImage {
@@ -443,18 +475,6 @@
   background-color: #45a049;
 }
 
-/* Make sure the modal is scrollable on small screens */
-@media (max-width: 768px) {
-  .modal {
-    width: 95%;
-    padding: 20px 15px;
-  }
-  
-  .modalImage {
-    max-height: 300px;
-  }
-}
-
 @media screen and (max-width: 1280px){
   .container {
     width: 1000px;
@@ -469,5 +489,27 @@
 
   .projectList {
     grid-template-columns: 1fr;
+  }
+
+  .carouselImageContainer {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 95%;
+    padding: 20px 15px;
+  }
+
+  .carouselImageContainer {
+    height: 150px;
+  }
+  
+  .carouselImage {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: none;
   }
 }

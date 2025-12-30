@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from "./App.module.css";
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 import DartsScores from "./assets/darts-scores.png";
@@ -11,10 +11,31 @@ import Parking from "./assets/parking.png";
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { preloadImages } from './utils/imagePreloader';
 
 const App = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [projectImages, setProjectImages] = useState([]);
+
+  // Preload project images when selected project changes
+  useEffect(() => {
+    if (selectedProject) {
+      setImagesLoaded(false);
+      preloadImages(selectedProject.images)
+        .then(() => {
+          setProjectImages(selectedProject.images);
+          setImagesLoaded(true);
+        })
+        .catch(error => {
+          console.error('Error preloading images:', error);
+          // Fallback to original images if preloading fails
+          setProjectImages(selectedProject.images);
+          setImagesLoaded(true);
+        });
+    }
+  }, [selectedProject]);
 
   const nextImage = (e) => {
     e.stopPropagation();
@@ -233,35 +254,53 @@ const App = () => {
             <div className={styles.modalContent}>
               <div className={styles.carouselContainer}>
                 <div className={styles.carouselImageContainer}>
-                  <img 
-                    src={selectedProject.images[currentImageIndex]} 
-                    alt={`${selectedProject.title} ${currentImageIndex + 1}`} 
-                    className={styles.modalImage} 
-                  />
-                  {selectedProject.images.length > 1 && (
+                  {!imagesLoaded ? (
+                    <div className={styles.loadingOverlay}>Loading images...</div>
+                  ) : (
+                    <img 
+                      src={projectImages[currentImageIndex]} 
+                      alt={selectedProject.title}
+                      className={styles.carouselImage}
+                    />
+                  )}
+                  {selectedProject.images.length > 1 && imagesLoaded && (
                     <>
                       <button 
                         className={`${styles.carouselButton} ${styles.carouselButtonLeft}`}
-                        onClick={prevImage}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(prev => 
+                            prev === 0 ? projectImages.length - 1 : prev - 1
+                          );
+                        }}
+                        disabled={!imagesLoaded}
                       >
                         <ArrowBackIosNewIcon />
                       </button>
                       <button 
                         className={`${styles.carouselButton} ${styles.carouselButtonRight}`}
-                        onClick={nextImage}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(prev => 
+                            prev === projectImages.length - 1 ? 0 : prev + 1
+                          );
+                        }}
+                        disabled={!imagesLoaded}
                       >
                         <ArrowForwardIosIcon />
                       </button>
                       <div className={styles.carouselDots}>
-                        {selectedProject.images.map((_, index) => (
+                        {projectImages.map((_, index) => (
                           <button
                             key={index}
-                            className={`${styles.carouselDot} ${index === currentImageIndex ? styles.activeDot : ''}`}
+                            className={`${styles.carouselDot} ${
+                              index === currentImageIndex ? styles.activeDot : ''
+                            }`}
                             onClick={(e) => {
                               e.stopPropagation();
-                              console.log(index);
                               setCurrentImageIndex(index);
                             }}
+                            disabled={!imagesLoaded}
                             aria-label={`Go to image ${index + 1}`}
                           />
                         ))}
