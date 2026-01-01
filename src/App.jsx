@@ -11,6 +11,7 @@ import Parking from "./assets/parking.png";
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CircularProgress from '@mui/material/CircularProgress';
 import { preloadImages } from './utils/imagePreloader';
 
 const App = () => {
@@ -255,7 +256,10 @@ const App = () => {
               <div className={styles.carouselContainer}>
                 <div className={styles.carouselImageContainer}>
                   {!imagesLoaded ? (
-                    <div className={styles.loadingOverlay}>Loading images...</div>
+                    <div className={styles.loadingOverlay}>
+                      <CircularProgress size={40} thickness={4} className={styles.circularProgress} />
+                      <span className={styles.loadingText}>Loading images...</span>
+                    </div>
                   ) : (
                     <img 
                       src={projectImages[currentImageIndex]} 
