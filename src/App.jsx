@@ -8,6 +8,9 @@ import GridSnap from "./assets/grid-snap.png";
 import GridSnap2 from "./assets/grid-snap-2.png";
 import MatchTrip from "./assets/matchtrip.png";
 import Parking from "./assets/parking.png";
+import Actio1 from "./assets/actio1.png";
+import Actio2 from "./assets/actio2.png";
+import Actio3 from "./assets/actio3.png";
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -107,6 +110,7 @@ const App = () => {
               <div className={`${styles.technology} ${styles.reactnative}`}>React Native</div>
               <div className={`${styles.technology} ${styles.typescript}`}>TypeScript</div>
               <div className={`${styles.technology} ${styles.css}`}>CSS</div>
+              <div className={`${styles.technology} ${styles.nodejs}`}>Node.js</div>
               <div className={`${styles.technology} ${styles.django}`}>Django</div>
               <div className={`${styles.technology} ${styles.python}`}>Python</div>
               <div className={`${styles.technology} ${styles.postgresql}`}>PostgreSQL</div>
@@ -174,6 +178,28 @@ const App = () => {
               </div>
             </div>
 
+            {/* Actio */}
+            <div onClick={() => openProject({
+              title: 'Actio',
+              images: [Actio1, Actio2, Actio3],
+              status: 'under-development',
+              description: 'Web/Mobile app for managing tasks',
+              technologies: ['Node.js', 'React', 'Typescript', 'CSS', 'React Native'],
+              link: null
+            })} className={styles.project}>
+              <div className={styles.projectTitle}>Actio</div>
+              <img className={styles.imageMobile} styles={{"width": "inherit"}} src={Actio1} />
+              <div className={`${styles.status} ${styles['status-under-development']}`}>Status: under development</div>
+              <div className={styles.projectDescription}>Web/Mobile app for managing tasks</div>
+              <div className={styles.projectTechnologies}>
+                <div className={`${styles.projectTechnology} ${styles.nodejs}`}>Node.js</div>
+                <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
+                <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
+                <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
+                <div className={`${styles.projectTechnology} ${styles.reactnative}`}>React Native</div>
+              </div>
+            </div>
+
             {/* Gridsnap */}
             <div onClick={() => openProject({
               title: 'Gridsnap',
@@ -227,7 +253,7 @@ const App = () => {
               link: null
             })} className={styles.project}>
               <div className={styles.projectTitle}>ParkCheck</div>
-              <img className={styles.image} src={Parking} />
+              <img className={styles.imageMobile} src={Parking} />
               <div className={`${styles.status} ${styles['status-under-development']}`}>Status: under development</div>
               <div className={styles.projectDescription}>Mobile App for clarifying parking sign rules wherever you park</div>
               <div className={styles.projectTechnologies}>
@@ -264,7 +290,7 @@ const App = () => {
                     <img 
                       src={projectImages[currentImageIndex]} 
                       alt={selectedProject.title}
-                      className={styles.carouselImage}
+                      className={selectedProject.title === "Actio" || selectedProject.title === "ParkCheck" ? styles.carouselImageMobile : styles.carouselImage}
                     />
                   )}
                   {selectedProject.images.length > 1 && imagesLoaded && (
@@ -320,7 +346,8 @@ const App = () => {
               <div className={styles.projectTechnologies}>
                 {selectedProject.technologies.map((tech, index) => {
                   // Convert to lowercase and replace spaces with hyphens for CSS class names
-                  const techClass = tech.toLowerCase().replace(/\s+/g, '');
+                  const techClass = tech.toLowerCase().replace(/\s+/g, '').replace(".", "");
+                  console.log(techClass);
                   return (
                     <div key={index} className={`${styles.projectTechnology} ${styles[techClass]}`}>
                       {tech}
