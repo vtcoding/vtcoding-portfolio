@@ -11,6 +11,7 @@ import Parking from "./assets/parking.png";
 import Actio1 from "./assets/actio1.png";
 import Actio2 from "./assets/actio2.png";
 import Actio3 from "./assets/actio3.png";
+import Actio4 from "./assets/actio4.png";
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -181,7 +182,7 @@ const App = () => {
             {/* Actio */}
             <div onClick={() => openProject({
               title: 'Actio',
-              images: [Actio1, Actio2, Actio3],
+              images: [Actio1, Actio2, Actio3, Actio4],
               status: 'under-development',
               description: 'Web/Mobile app for managing tasks',
               technologies: ['Node.js', 'React', 'Typescript', 'CSS', 'React Native'],
@@ -192,11 +193,13 @@ const App = () => {
               <div className={`${styles.status} ${styles['status-under-development']}`}>Status: under development</div>
               <div className={styles.projectDescription}>Web/Mobile app for managing tasks</div>
               <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.nodejs}`}>Node.js</div>
                 <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
                 <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
                 <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
                 <div className={`${styles.projectTechnology} ${styles.reactnative}`}>React Native</div>
+                <div className={`${styles.projectTechnology} ${styles.nodejs}`}>Node.js</div>
+                <div className={`${styles.projectTechnology} ${styles.postgresql}`}>PostgreSQL</div>
+                <div className={`${styles.projectTechnology} ${styles.docker}`}>Docker</div>
               </div>
             </div>
 
