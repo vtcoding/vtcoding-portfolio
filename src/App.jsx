@@ -141,8 +141,6 @@ const App = () => {
             </p>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.windsurf}`}>Windsurf</div>
-              <div className={`${styles.technology} ${styles.vscode}`}>VSCode</div>
-              <div className={`${styles.technology} ${styles.copilot}`}>Copilot</div>
               <div className={`${styles.technology} ${styles.jira}`}>Jira</div>
               <div className={`${styles.technology} ${styles.geminiai}`}>Gemini AI</div>
             </div>
@@ -160,14 +158,14 @@ const App = () => {
               title: 'Darts Scores',
               images: [DartsScores, DartsScores2, DartsScores3],
               status: 'deployed',
-              description: 'Web App for keeping count of personal darts matches, practice and viewing statistics',
+              description: 'Darts scoreboard with X01 games, practice games and statistics tracking',
               technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL', 'Docker'],
               link: 'https://darts-scores.vtcoding.click'
             })} className={styles.project}>
               <div className={styles.projectTitle}>Darts Scores</div>
               <img className={styles.image} src={DartsScores} />
               <div className={`${styles.status} ${styles['status-deployed']}`}>Status: deployed</div>
-              <div className={styles.projectDescription}>Web App for keeping count of personal darts matches, practice and viewing statistics</div>
+              <div className={styles.projectDescription}>Darts scoreboard with X01 games, practice games and statistics tracking</div>
               <div className={styles.projectTechnologies}>
                 <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
                 <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
