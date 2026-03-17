@@ -100,7 +100,7 @@ const App = () => {
       </div>
       <div className={`${styles.tech} ${styles.section}`}>
         <div className={styles.container}>
-          <div className={styles.heading}>Technologies</div>
+          <div className={styles.heading}>Tech stack</div>
           <div className={styles.line}></div>
           
           <div className={styles.techCategory}>
@@ -119,16 +119,28 @@ const App = () => {
           </div>
 
           <div className={styles.techCategory}>
+            <h3 className={styles.categoryTitle}>Testing</h3>
+            <div className={styles.technologies}>
+              <div className={`${styles.technology} ${styles.jest}`}>Jest</div>
+              <div className={`${styles.technology} ${styles.reacttestinglibrary}`}>React Testing Library</div>
+              <div className={`${styles.technology} ${styles.pytest}`}>pytest</div>
+              <div className={`${styles.technology} ${styles.pytestdjango}`}>pytest-django</div>
+            </div>
+          </div>
+
+          <div className={styles.techCategory}>
             <h3 className={styles.categoryTitle}>CI/CD & Hosting</h3>
             <p className={styles.categoryDescription}>
               Tools I use for deployment, containerization, and version control.
               Most of my apps are deployed to Ubuntu VPS (running Docker) via automatic GitHub workflows.
               All of the codebases are hosted on GitHub repositories and some Frontend only projects such as this portfolio run on gh-pages.
+              Currently experimenting with Google Cloud.
             </p>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.github}`}>GitHub</div>
               <div className={`${styles.technology} ${styles.docker}`}>Docker</div>
               <div className={`${styles.technology} ${styles.ubuntu}`}>Ubuntu (VPS)</div>
+              <div className={`${styles.technology} ${styles.googlecloud}`}>Google Cloud</div>
             </div>
           </div>
 
@@ -141,8 +153,6 @@ const App = () => {
             </p>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.windsurf}`}>Windsurf</div>
-              <div className={`${styles.technology} ${styles.vscode}`}>VSCode</div>
-              <div className={`${styles.technology} ${styles.copilot}`}>Copilot</div>
               <div className={`${styles.technology} ${styles.jira}`}>Jira</div>
               <div className={`${styles.technology} ${styles.geminiai}`}>Gemini AI</div>
             </div>
@@ -160,14 +170,14 @@ const App = () => {
               title: 'Darts Scores',
               images: [DartsScores, DartsScores2, DartsScores3],
               status: 'deployed',
-              description: 'Web App for keeping count of personal darts matches, practice and viewing statistics',
+              description: 'Darts scoreboard with X01 games, practice games and statistics tracking',
               technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL', 'Docker'],
               link: null /*'https://darts-scores.vtcoding.click'*/
             })} className={styles.project}>
               <div className={styles.projectTitle}>Darts Scores</div>
               <img className={styles.image} src={DartsScores} />
               <div className={`${styles.status} ${styles['status-deployed']}`}>Status: deployed</div>
-              <div className={styles.projectDescription}>Web App for keeping count of personal darts matches, practice and viewing statistics</div>
+              <div className={styles.projectDescription}>Darts scoreboard with X01 games, practice games and statistics tracking</div>
               <div className={styles.projectTechnologies}>
                 <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
                 <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
