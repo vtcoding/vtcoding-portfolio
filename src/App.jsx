@@ -162,7 +162,7 @@ const App = () => {
               status: 'deployed',
               description: 'Web App for keeping count of personal darts matches, practice and viewing statistics',
               technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL', 'Docker'],
-              link: 'https://darts-scores.vtcoding.click'
+              link: null /*'https://darts-scores.vtcoding.click'*/
             })} className={styles.project}>
               <div className={styles.projectTitle}>Darts Scores</div>
               <img className={styles.image} src={DartsScores} />
@@ -350,7 +350,6 @@ const App = () => {
                 {selectedProject.technologies.map((tech, index) => {
                   // Convert to lowercase and replace spaces with hyphens for CSS class names
                   const techClass = tech.toLowerCase().replace(/\s+/g, '').replace(".", "");
-                  console.log(techClass);
                   return (
                     <div key={index} className={`${styles.projectTechnology} ${styles[techClass]}`}>
                       {tech}
