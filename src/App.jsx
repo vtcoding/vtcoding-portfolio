@@ -100,7 +100,7 @@ const App = () => {
       </div>
       <div className={`${styles.tech} ${styles.section}`}>
         <div className={styles.container}>
-          <div className={styles.heading}>Tech stack</div>
+          <div className={styles.heading}>Tech stacki</div>
           <div className={styles.line}></div>
           
           <div className={styles.techCategory}>
