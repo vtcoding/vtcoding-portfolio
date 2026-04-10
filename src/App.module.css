@@ -160,6 +160,7 @@
 
 
 .windsurf { background-color: #00A0D2; }
+.claude { background-color: #CC785C; }
 .geminiai { background-color: #2196f3; }
 .ubuntu { background-color: #E95420; }
 
@@ -168,9 +169,6 @@
 .reacttestinglibrary { background-color: #E33332; color: white; }
 .pytest { background-color: #0A9EDC; color: white; }
 .pytestdjango { background-color: #0A9EDC; color: white; }
-
-/* Cloud Platform Colors */
-.googlecloud { background-color: #4285F4; }
 
 
 .projects {

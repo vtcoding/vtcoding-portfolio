@@ -42,20 +42,6 @@ const App = () => {
     }
   }, [selectedProject]);
 
-  const nextImage = (e) => {
-    e.stopPropagation();
-    setCurrentImageIndex(prev => 
-      prev === selectedProject.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = (e) => {
-    e.stopPropagation();
-    setCurrentImageIndex(prev => 
-      prev === 0 ? selectedProject.images.length - 1 : prev - 1
-    );
-  };
-
   const openProject = (project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
@@ -134,27 +120,24 @@ const App = () => {
               Tools I use for deployment, containerization, and version control.
               Most of my apps are deployed to Ubuntu VPS (running Docker) via automatic GitHub workflows.
               All of the codebases are hosted on GitHub repositories and some Frontend only projects such as this portfolio run on gh-pages.
-              Currently experimenting with Google Cloud.
             </p>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.github}`}>GitHub</div>
               <div className={`${styles.technology} ${styles.docker}`}>Docker</div>
               <div className={`${styles.technology} ${styles.ubuntu}`}>Ubuntu (VPS)</div>
-              <div className={`${styles.technology} ${styles.googlecloud}`}>Google Cloud</div>
             </div>
           </div>
 
           <div className={styles.techCategory}>
             <h3 className={styles.categoryTitle}>Tools</h3>
             <p className={styles.categoryDescription}>
-              Development tools and platforms I use. 
-              Windsurf is my preferred IDE as it has built-in AI agent functionality with 100% free base model. While not as effective as other paid options, it works well for free agent.
-              Jira for ticket management, Gemini 2.5 Flash for my projects AI features and latest Gemini for general assistance.
+              Development tools and platforms I use. VSCode as code editor and Claude and/or Windsurf for AI. Jira for ticket management.
             </p>
             <div className={styles.technologies}>
+              <div className={`${styles.technology} ${styles.windsurf}`}>Visual Studio Code</div>
               <div className={`${styles.technology} ${styles.windsurf}`}>Windsurf</div>
+              <div className={`${styles.technology} ${styles.claude}`}>Claude Code</div>
               <div className={`${styles.technology} ${styles.jira}`}>Jira</div>
-              <div className={`${styles.technology} ${styles.geminiai}`}>Gemini AI</div>
             </div>
           </div>
         </div>
