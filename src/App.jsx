@@ -7,11 +7,6 @@ import DartsScores3 from "./assets/darts-scores-3.png";
 import GridSnap from "./assets/grid-snap.png";
 import GridSnap2 from "./assets/grid-snap-2.png";
 import MatchTrip from "./assets/matchtrip.png";
-import Parking from "./assets/parking.png";
-import Actio1 from "./assets/actio1.png";
-import Actio2 from "./assets/actio2.png";
-import Actio3 from "./assets/actio3.png";
-import Actio4 from "./assets/actio4.png";
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -41,20 +36,6 @@ const App = () => {
         });
     }
   }, [selectedProject]);
-
-  const nextImage = (e) => {
-    e.stopPropagation();
-    setCurrentImageIndex(prev => 
-      prev === selectedProject.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = (e) => {
-    e.stopPropagation();
-    setCurrentImageIndex(prev => 
-      prev === 0 ? selectedProject.images.length - 1 : prev - 1
-    );
-  };
 
   const openProject = (project) => {
     setSelectedProject(project);
