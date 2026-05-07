@@ -149,6 +149,7 @@
 .python { background-color: #3776AB; }
 .postgresql { background-color: #336791; }
 .nodejs { background-color: #339933; color: white; }
+.godot { background-color: #478CBF; }
 
 .github { background-color: #181717; }
 .docker { background-color: #2496ED; }
@@ -160,6 +161,7 @@
 
 
 .windsurf { background-color: #00A0D2; }
+.claude { background-color: #D97706; }
 .geminiai { background-color: #2196f3; }
 .ubuntu { background-color: #E95420; }
 
@@ -248,7 +250,6 @@
 }
 
 .projectTitle,
-.status,
 .projectDescription,
 .projectTechnologies {
   position: relative;
@@ -257,29 +258,6 @@
 
 .projectTitle {
   font-size: 24px;
-}
-
-.status {
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: inline-block;
-  white-space: nowrap;
-  font-weight: bold;
-  color: white;
-  justify-self: start;
-}
-
-.status-planning {
-  background-color: red;
-}
-
-.status-under-development {
-  background-color: #f1c40f;
-  color: black;
-}
-
-.status-deployed {
-  background-color: #2ecc71;
 }
 
 .projectTechnologies {

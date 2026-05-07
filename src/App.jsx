@@ -115,6 +115,7 @@ const App = () => {
               <div className={`${styles.technology} ${styles.django}`}>Django</div>
               <div className={`${styles.technology} ${styles.python}`}>Python</div>
               <div className={`${styles.technology} ${styles.postgresql}`}>PostgreSQL</div>
+              <div className={`${styles.technology} ${styles.godot}`}>Godot</div>
             </div>
           </div>
 
@@ -134,27 +135,25 @@ const App = () => {
               Tools I use for deployment, containerization, and version control.
               Most of my apps are deployed to Ubuntu VPS (running Docker) via automatic GitHub workflows.
               All of the codebases are hosted on GitHub repositories and some Frontend only projects such as this portfolio run on gh-pages.
-              Currently experimenting with Google Cloud.
             </p>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.github}`}>GitHub</div>
               <div className={`${styles.technology} ${styles.docker}`}>Docker</div>
               <div className={`${styles.technology} ${styles.ubuntu}`}>Ubuntu (VPS)</div>
-              <div className={`${styles.technology} ${styles.googlecloud}`}>Google Cloud</div>
             </div>
           </div>
 
           <div className={styles.techCategory}>
             <h3 className={styles.categoryTitle}>Tools</h3>
             <p className={styles.categoryDescription}>
-              Development tools and platforms I use. 
-              Windsurf is my preferred IDE as it has built-in AI agent functionality with 100% free base model. While not as effective as other paid options, it works well for free agent.
-              Jira for ticket management, Gemini 2.5 Flash for my projects AI features and latest Gemini for general assistance.
+              Development tools I use. 
+              Claude Code for AI agents, Windsurf and VScode as IDE:s and Jira for ticket management.
             </p>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.windsurf}`}>Windsurf</div>
+              <div className={`${styles.technology} ${styles.vscode}`}>VSCode</div>
+              <div className={`${styles.technology} ${styles.claude}`}>Claude</div>
               <div className={`${styles.technology} ${styles.jira}`}>Jira</div>
-              <div className={`${styles.technology} ${styles.geminiai}`}>Gemini AI</div>
             </div>
           </div>
         </div>
@@ -169,14 +168,12 @@ const App = () => {
             <div onClick={() => openProject({
               title: 'Darts Scores',
               images: [DartsScores, DartsScores2, DartsScores3],
-              status: 'deployed',
               description: 'Darts scoreboard with X01 games, practice games and statistics tracking',
               technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL', 'Docker'],
-              link: 'https://darts-scores.vtcoding.click'
+              link: 'https://github.com/vtcoding/darts-scores-public'
             })} className={styles.project}>
               <div className={styles.projectTitle}>Darts Scores</div>
               <img className={styles.image} src={DartsScores} />
-              <div className={`${styles.status} ${styles['status-deployed']}`}>Status: deployed</div>
               <div className={styles.projectDescription}>Darts scoreboard with X01 games, practice games and statistics tracking</div>
               <div className={styles.projectTechnologies}>
                 <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
@@ -189,42 +186,16 @@ const App = () => {
               </div>
             </div>
 
-            {/* Actio */}
-            <div onClick={() => openProject({
-              title: 'Actio',
-              images: [Actio1, Actio2, Actio3, Actio4],
-              status: 'under-development',
-              description: 'Web/Mobile app for managing tasks',
-              technologies: ['Node.js', 'React', 'Typescript', 'CSS', 'React Native'],
-              link: null
-            })} className={styles.project}>
-              <div className={styles.projectTitle}>Actio</div>
-              <img className={styles.imageMobile} styles={{"width": "inherit"}} src={Actio1} />
-              <div className={`${styles.status} ${styles['status-under-development']}`}>Status: under development</div>
-              <div className={styles.projectDescription}>Web/Mobile app for managing tasks</div>
-              <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
-                <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
-                <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
-                <div className={`${styles.projectTechnology} ${styles.reactnative}`}>React Native</div>
-                <div className={`${styles.projectTechnology} ${styles.nodejs}`}>Node.js</div>
-                <div className={`${styles.projectTechnology} ${styles.postgresql}`}>PostgreSQL</div>
-                <div className={`${styles.projectTechnology} ${styles.docker}`}>Docker</div>
-              </div>
-            </div>
-
             {/* Gridsnap */}
             <div onClick={() => openProject({
               title: 'Gridsnap',
               images: [GridSnap, GridSnap2],
-              status: 'deployed',
               description: 'Web App for configuring numbered grid over an image',
               technologies: ['React', 'Typescript', 'CSS'],
               link: 'https://vtcoding.github.io/gridsnap/'
             })} className={styles.project}>
               <div className={styles.projectTitle}>Gridsnap</div>
               <img className={styles.image} src={GridSnap} />
-              <div className={`${styles.status} ${styles['status-deployed']}`}>Status: deployed</div>
               <div className={styles.projectDescription}>Web App for configuring numbered grid over an image</div>
               <div className={styles.projectTechnologies}>
                 <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
@@ -237,14 +208,12 @@ const App = () => {
             <div onClick={() => openProject({
               title: 'Matchtrip',
               images: [MatchTrip, MatchTrip, MatchTrip],
-              status: 'under-development',
               description: 'Web App for searching sport fixtures inside specific kilometer range and timerange',
               technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL'],
               link: null
             })} className={styles.project}>
               <div className={styles.projectTitle}>Matchtrip</div>
               <img className={styles.image} src={MatchTrip} />
-              <div className={`${styles.status} ${styles['status-under-development']}`}>Status: under development</div>
               <div className={styles.projectDescription}>Web App for searching sport fixtures inside specific kilometer range and timerange</div>
               <div className={styles.projectTechnologies}>
                 <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
@@ -255,30 +224,6 @@ const App = () => {
                 <div className={`${styles.projectTechnology} ${styles.postgresql}`}>PostgreSQL</div>
               </div>
             </div>
-
-            {/* ParkCheck */}
-            <div onClick={() => openProject({
-              title: 'ParkCheck',
-              images: [Parking],
-              status: 'under-development',
-              description: 'Mobile App for clarifying parking sign rules wherever you park',
-              technologies: ['React Native', 'Typescript', 'CSS', 'Django', 'Gemini AI', 'Docker'],
-              link: null
-            })} className={styles.project}>
-              <div className={styles.projectTitle}>ParkCheck</div>
-              <img className={styles.imageMobile} src={Parking} />
-              <div className={`${styles.status} ${styles['status-under-development']}`}>Status: under development</div>
-              <div className={styles.projectDescription}>Mobile App for clarifying parking sign rules wherever you park</div>
-              <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.reactnative}`}>React Native</div>
-                <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
-                <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
-                <div className={`${styles.projectTechnology} ${styles.django}`}>Django</div>
-                <div className={`${styles.projectTechnology} ${styles.geminiai}`}>Gemini AI</div>
-                <div className={`${styles.projectTechnology} ${styles.docker}`}>Docker</div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
@@ -352,15 +297,11 @@ const App = () => {
                   )}
                 </div>
               </div>
-              <div className={`${styles.status} ${styles[`status-${selectedProject.status}`]}`}>
-                Status: {selectedProject.status === 'deployed' ? 'deployed' : 'under development'}
-              </div>
               <p className={styles.modalDescription}>{selectedProject.description}</p>
               <div className={styles.projectTechnologies}>
                 {selectedProject.technologies.map((tech, index) => {
                   // Convert to lowercase and replace spaces with hyphens for CSS class names
                   const techClass = tech.toLowerCase().replace(/\s+/g, '').replace(".", "");
-                  console.log(techClass);
                   return (
                     <div key={index} className={`${styles.projectTechnology} ${styles[techClass]}`}>
                       {tech}
