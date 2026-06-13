@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import styles from "./App.module.css";
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import DartsScores from "./assets/darts-scores.png";
 import DartsScores2 from "./assets/darts-scores-2.png";
 import DartsScores3 from "./assets/darts-scores-3.png";
 import GridSnap from "./assets/grid-snap.png";
 import GridSnap2 from "./assets/grid-snap-2.png";
 import MatchTrip from "./assets/matchtrip.png";
-import CloseIcon from '@mui/icons-material/Close';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import CircularProgress from '@mui/material/CircularProgress';
-import { preloadImages } from './utils/imagePreloader';
+import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CircularProgress from "@mui/material/CircularProgress";
+import { preloadImages } from "./utils/imagePreloader";
 
 const App = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -28,8 +28,8 @@ const App = () => {
           setProjectImages(selectedProject.images);
           setImagesLoaded(true);
         })
-        .catch(error => {
-          console.error('Error preloading images:', error);
+        .catch((error) => {
+          console.error("Error preloading images:", error);
           // Fallback to original images if preloading fails
           setProjectImages(selectedProject.images);
           setImagesLoaded(true);
@@ -40,18 +40,17 @@ const App = () => {
   const openProject = (project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const scrollToTech = () => {
     const techSection = document.querySelector(`.${styles.tech}`);
-    techSection.scrollIntoView({ behavior: 'smooth' });
+    techSection.scrollIntoView({ behavior: "smooth" });
   };
-
 
   const closeProject = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
   const handleModalClick = (e) => {
@@ -67,13 +66,14 @@ const App = () => {
             <div className={styles.heading}>VILLE'S PORTFOLIO</div>
             <div className={styles.line}></div>
             <div className={styles.description}>
-              A collection of my personal projects built for learning and experimentation, including technologies I use.
-              Scroll down to see more.
+              A collection of my personal projects built for learning and
+              experimentation, including technologies I use. Scroll down to see
+              more.
             </div>
           </div>
           <div className={styles.arrowContainer}>
-            <ArrowCircleDownIcon 
-              onClick={scrollToTech} 
+            <ArrowCircleDownIcon
+              onClick={scrollToTech}
               className={styles.arrowIcon}
             />
           </div>
@@ -83,20 +83,38 @@ const App = () => {
         <div className={styles.container}>
           <div className={styles.heading}>Tech stack</div>
           <div className={styles.line}></div>
-          
+
           <div className={styles.techCategory}>
             <h3 className={styles.categoryTitle}>Languages & Frameworks</h3>
-            <p className={styles.categoryDescription}>Core technologies I use to build applications.</p>
+            <p className={styles.categoryDescription}>
+              Core technologies I use to build applications.
+            </p>
             <div className={styles.technologies}>
-              <div className={`${styles.technology} ${styles.react}`}>React</div>
-              <div className={`${styles.technology} ${styles.reactnative}`}>React Native</div>
-              <div className={`${styles.technology} ${styles.typescript}`}>TypeScript</div>
+              <div className={`${styles.technology} ${styles.react}`}>
+                React
+              </div>
+              <div className={`${styles.technology} ${styles.reactnative}`}>
+                React Native
+              </div>
+              <div className={`${styles.technology} ${styles.typescript}`}>
+                TypeScript
+              </div>
               <div className={`${styles.technology} ${styles.css}`}>CSS</div>
-              <div className={`${styles.technology} ${styles.nodejs}`}>Node.js</div>
-              <div className={`${styles.technology} ${styles.django}`}>Django</div>
-              <div className={`${styles.technology} ${styles.python}`}>Python</div>
-              <div className={`${styles.technology} ${styles.postgresql}`}>PostgreSQL</div>
-              <div className={`${styles.technology} ${styles.godot}`}>Godot</div>
+              <div className={`${styles.technology} ${styles.nodejs}`}>
+                Node.js
+              </div>
+              <div className={`${styles.technology} ${styles.django}`}>
+                Django
+              </div>
+              <div className={`${styles.technology} ${styles.python}`}>
+                Python
+              </div>
+              <div className={`${styles.technology} ${styles.postgresql}`}>
+                PostgreSQL
+              </div>
+              <div className={`${styles.technology} ${styles.godot}`}>
+                Godot
+              </div>
             </div>
           </div>
 
@@ -104,9 +122,17 @@ const App = () => {
             <h3 className={styles.categoryTitle}>Testing</h3>
             <div className={styles.technologies}>
               <div className={`${styles.technology} ${styles.jest}`}>Jest</div>
-              <div className={`${styles.technology} ${styles.reacttestinglibrary}`}>React Testing Library</div>
-              <div className={`${styles.technology} ${styles.pytest}`}>pytest</div>
-              <div className={`${styles.technology} ${styles.pytestdjango}`}>pytest-django</div>
+              <div
+                className={`${styles.technology} ${styles.reacttestinglibrary}`}
+              >
+                React Testing Library
+              </div>
+              <div className={`${styles.technology} ${styles.pytest}`}>
+                pytest
+              </div>
+              <div className={`${styles.technology} ${styles.pytestdjango}`}>
+                pytest-django
+              </div>
             </div>
           </div>
 
@@ -114,26 +140,37 @@ const App = () => {
             <h3 className={styles.categoryTitle}>CI/CD & Hosting</h3>
             <p className={styles.categoryDescription}>
               Tools I use for deployment, containerization, and version control.
-              Most of my apps are deployed to Ubuntu VPS (running Docker) via automatic GitHub workflows.
-              All of the codebases are hosted on GitHub repositories and some Frontend only projects such as this portfolio run on gh-pages.
+              Most of my apps are deployed to Ubuntu VPS (running Docker) via
+              automatic GitHub workflows. All of the codebases are hosted on
+              GitHub repositories and some Frontend only projects such as this
+              portfolio run on gh-pages.
             </p>
             <div className={styles.technologies}>
-              <div className={`${styles.technology} ${styles.github}`}>GitHub</div>
-              <div className={`${styles.technology} ${styles.docker}`}>Docker</div>
-              <div className={`${styles.technology} ${styles.ubuntu}`}>Ubuntu (VPS)</div>
+              <div className={`${styles.technology} ${styles.github}`}>
+                GitHub
+              </div>
+              <div className={`${styles.technology} ${styles.docker}`}>
+                Docker
+              </div>
+              <div className={`${styles.technology} ${styles.ubuntu}`}>
+                Ubuntu (VPS)
+              </div>
             </div>
           </div>
 
           <div className={styles.techCategory}>
             <h3 className={styles.categoryTitle}>Tools</h3>
             <p className={styles.categoryDescription}>
-              Development tools I use. 
-              Claude Code for AI agents, Windsurf and VScode as IDE:s and Jira for ticket management.
+              Development tools I use. Claude Code for AI agents, VScode as IDE
+              and Jira for ticket management.
             </p>
             <div className={styles.technologies}>
-              <div className={`${styles.technology} ${styles.windsurf}`}>Windsurf</div>
-              <div className={`${styles.technology} ${styles.vscode}`}>VSCode</div>
-              <div className={`${styles.technology} ${styles.claude}`}>Claude</div>
+              <div className={`${styles.technology} ${styles.vscode}`}>
+                VSCode
+              </div>
+              <div className={`${styles.technology} ${styles.claude}`}>
+                Claude
+              </div>
               <div className={`${styles.technology} ${styles.jira}`}>Jira</div>
             </div>
           </div>
@@ -144,71 +181,153 @@ const App = () => {
           <div className={styles.heading}>Projects</div>
           <div className={styles.line}></div>
           <div className={styles.projectList}>
-            
             {/* Darts Scores */}
-            <div onClick={() => openProject({
-              title: 'Darts Scores',
-              images: [DartsScores, DartsScores2, DartsScores3],
-              description: 'Darts scoreboard with X01 games, practice games and statistics tracking',
-              technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL', 'Docker'],
-              link: 'https://github.com/vtcoding/darts-scores-public'
-            })} className={styles.project}>
+            <div
+              onClick={() =>
+                openProject({
+                  title: "Darts Scores",
+                  images: [DartsScores, DartsScores2, DartsScores3],
+                  description:
+                    "Darts scoreboard with X01 games, practice games and statistics tracking",
+                  technologies: [
+                    "React",
+                    "Typescript",
+                    "CSS",
+                    "Django",
+                    "Python",
+                    "PostgreSQL",
+                    "Docker",
+                  ],
+                  link: "https://github.com/vtcoding/darts-scores-public",
+                })
+              }
+              className={styles.project}
+            >
               <div className={styles.projectTitle}>Darts Scores</div>
               <img className={styles.image} src={DartsScores} />
-              <div className={styles.projectDescription}>Darts scoreboard with X01 games, practice games and statistics tracking</div>
+              <div className={styles.projectDescription}>
+                Darts scoreboard with X01 games, practice games and statistics
+                tracking
+              </div>
               <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
-                <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
-                <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
-                <div className={`${styles.projectTechnology} ${styles.django}`}>Django</div>
-                <div className={`${styles.projectTechnology} ${styles.python}`}>Python</div>
-                <div className={`${styles.projectTechnology} ${styles.postgresql}`}>PostgreSQL</div>
-                <div className={`${styles.projectTechnology} ${styles.docker}`}>Docker</div>
+                <div className={`${styles.projectTechnology} ${styles.react}`}>
+                  React
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.typescript}`}
+                >
+                  Typescript
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.css}`}>
+                  CSS
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.django}`}>
+                  Django
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.python}`}>
+                  Python
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.postgresql}`}
+                >
+                  PostgreSQL
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.docker}`}>
+                  Docker
+                </div>
               </div>
             </div>
 
             {/* Gridsnap */}
-            <div onClick={() => openProject({
-              title: 'Gridsnap',
-              images: [GridSnap, GridSnap2],
-              description: 'Web App for configuring numbered grid over an image',
-              technologies: ['React', 'Typescript', 'CSS'],
-              link: 'https://vtcoding.github.io/gridsnap/'
-            })} className={styles.project}>
+            <div
+              onClick={() =>
+                openProject({
+                  title: "Gridsnap",
+                  images: [GridSnap, GridSnap2],
+                  description:
+                    "Web App for configuring numbered grid over an image",
+                  technologies: ["React", "Typescript", "CSS"],
+                  link: "https://vtcoding.github.io/gridsnap/",
+                })
+              }
+              className={styles.project}
+            >
               <div className={styles.projectTitle}>Gridsnap</div>
               <img className={styles.image} src={GridSnap} />
-              <div className={styles.projectDescription}>Web App for configuring numbered grid over an image</div>
+              <div className={styles.projectDescription}>
+                Web App for configuring numbered grid over an image
+              </div>
               <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
-                <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
-                <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
+                <div className={`${styles.projectTechnology} ${styles.react}`}>
+                  React
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.typescript}`}
+                >
+                  Typescript
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.css}`}>
+                  CSS
+                </div>
               </div>
             </div>
 
             {/* Matchtrip */}
-            <div onClick={() => openProject({
-              title: 'Matchtrip',
-              images: [MatchTrip, MatchTrip, MatchTrip],
-              description: 'Web App for searching sport fixtures inside specific kilometer range and timerange',
-              technologies: ['React', 'Typescript', 'CSS', 'Django', 'Python', 'PostgreSQL'],
-              link: null
-            })} className={styles.project}>
+            <div
+              onClick={() =>
+                openProject({
+                  title: "Matchtrip",
+                  images: [MatchTrip, MatchTrip, MatchTrip],
+                  description:
+                    "Web App for searching sport fixtures inside specific kilometer range and timerange",
+                  technologies: [
+                    "React",
+                    "Typescript",
+                    "CSS",
+                    "Django",
+                    "Python",
+                    "PostgreSQL",
+                  ],
+                  link: null,
+                })
+              }
+              className={styles.project}
+            >
               <div className={styles.projectTitle}>Matchtrip</div>
               <img className={styles.image} src={MatchTrip} />
-              <div className={styles.projectDescription}>Web App for searching sport fixtures inside specific kilometer range and timerange</div>
+              <div className={styles.projectDescription}>
+                Web App for searching sport fixtures inside specific kilometer
+                range and timerange
+              </div>
               <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.react}`}>React</div>
-                <div className={`${styles.projectTechnology} ${styles.typescript}`}>Typescript</div>
-                <div className={`${styles.projectTechnology} ${styles.css}`}>CSS</div>
-                <div className={`${styles.projectTechnology} ${styles.django}`}>Django</div>
-                <div className={`${styles.projectTechnology} ${styles.python}`}>Python</div>
-                <div className={`${styles.projectTechnology} ${styles.postgresql}`}>PostgreSQL</div>
+                <div className={`${styles.projectTechnology} ${styles.react}`}>
+                  React
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.typescript}`}
+                >
+                  Typescript
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.css}`}>
+                  CSS
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.django}`}>
+                  Django
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.python}`}>
+                  Python
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.postgresql}`}
+                >
+                  PostgreSQL
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Project Modal */}
       {selectedProject && (
         <div className={styles.modalOverlay} onClick={handleModalClick}>
@@ -222,36 +341,47 @@ const App = () => {
                 <div className={styles.carouselImageContainer}>
                   {!imagesLoaded ? (
                     <div className={styles.loadingOverlay}>
-                      <CircularProgress size={40} thickness={4} className={styles.circularProgress} />
-                      <span className={styles.loadingText}>Loading images...</span>
+                      <CircularProgress
+                        size={40}
+                        thickness={4}
+                        className={styles.circularProgress}
+                      />
+                      <span className={styles.loadingText}>
+                        Loading images...
+                      </span>
                     </div>
                   ) : (
-                    <img 
-                      src={projectImages[currentImageIndex]} 
+                    <img
+                      src={projectImages[currentImageIndex]}
                       alt={selectedProject.title}
-                      className={selectedProject.title === "Actio" || selectedProject.title === "ParkCheck" ? styles.carouselImageMobile : styles.carouselImage}
+                      className={
+                        selectedProject.title === "Actio" ||
+                        selectedProject.title === "ParkCheck"
+                          ? styles.carouselImageMobile
+                          : styles.carouselImage
+                      }
                     />
                   )}
                   {selectedProject.images.length > 1 && imagesLoaded && (
                     <>
-                      <button 
+                      <button
                         className={`${styles.carouselButton} ${styles.carouselButtonLeft}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          setCurrentImageIndex(prev => 
-                            prev === 0 ? projectImages.length - 1 : prev - 1
+                          setCurrentImageIndex((prev) =>
+                            prev === 0 ? projectImages.length - 1 : prev - 1,
                           );
                         }}
                         disabled={!imagesLoaded}
                       >
                         <ArrowBackIosNewIcon />
                       </button>
-                      <button 
+                      <button
                         className={`${styles.carouselButton} ${styles.carouselButtonRight}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          setCurrentImageIndex(prev => 
-                            prev === projectImages.length - 1 ? 0 : prev + 1
+                          setCurrentImageIndex((prev) =>
+                            prev === projectImages.length - 1 ? 0 : prev + 1,
                           );
                         }}
                         disabled={!imagesLoaded}
@@ -263,7 +393,9 @@ const App = () => {
                           <button
                             key={index}
                             className={`${styles.carouselDot} ${
-                              index === currentImageIndex ? styles.activeDot : ''
+                              index === currentImageIndex
+                                ? styles.activeDot
+                                : ""
                             }`}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -278,22 +410,36 @@ const App = () => {
                   )}
                 </div>
               </div>
-              <p className={styles.modalDescription}>{selectedProject.description}</p>
+              <p className={styles.modalDescription}>
+                {selectedProject.description}
+              </p>
               <div className={styles.projectTechnologies}>
                 {selectedProject.technologies.map((tech, index) => {
                   // Convert to lowercase and replace spaces with hyphens for CSS class names
-                  const techClass = tech.toLowerCase().replace(/\s+/g, '').replace(".", "");
+                  const techClass = tech
+                    .toLowerCase()
+                    .replace(/\s+/g, "")
+                    .replace(".", "");
                   return (
-                    <div key={index} className={`${styles.projectTechnology} ${styles[techClass]}`}>
+                    <div
+                      key={index}
+                      className={`${styles.projectTechnology} ${styles[techClass]}`}
+                    >
                       {tech}
                     </div>
                   );
                 })}
               </div>
               {selectedProject.link && (
-                <button 
+                <button
                   className={styles.visitButton}
-                  onClick={() => window.open(selectedProject.link, "_blank", "noopener,noreferrer")}
+                  onClick={() =>
+                    window.open(
+                      selectedProject.link,
+                      "_blank",
+                      "noopener,noreferrer",
+                    )
+                  }
                 >
                   Visit Project
                 </button>
@@ -306,4 +452,4 @@ const App = () => {
   );
 };
 
-export default App
+export default App;

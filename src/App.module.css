@@ -1,6 +1,6 @@
 .section {
   align-items: center;
-  color: #FFF;
+  color: #fff;
   display: grid;
   justify-content: center;
   width: 100vw;
@@ -43,7 +43,11 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -61,7 +65,7 @@
 }
 
 .line {
-  background-color: #CCC;
+  background-color: #ccc;
   height: 1px;
   width: 100px;
   margin-bottom: 30px;
@@ -77,7 +81,7 @@
 
 .about {
   background-color: #333;
-  background-image: url('./assets/bg.jpg');
+  background-image: url("./assets/bg.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
@@ -89,7 +93,7 @@
 }
 
 .background {
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   position: absolute;
   width: 100%;
@@ -117,12 +121,12 @@
 .categoryTitle {
   font-size: 24px;
   margin: 0 0 10px 0;
-  color: #FFF;
+  color: #fff;
   font-weight: 500;
 }
 
 .categoryDescription {
-  color: #BBB;
+  color: #bbb;
   margin: 0 0 15px 0;
   font-size: 16px;
 }
@@ -141,36 +145,81 @@
 }
 
 /* Colors */
-.react { background-color: #61DAFB; color: #000; }
-.reactnative { background-color: #61DAFB; color: #000; }
-.typescript { background-color: #3178C6; }
-.css { background-color: #1572B6; }
-.django { background-color: #092E20; }
-.python { background-color: #3776AB; }
-.postgresql { background-color: #336791; }
-.nodejs { background-color: #339933; color: white; }
-.godot { background-color: #478CBF; }
+.react {
+  background-color: #61dafb;
+  color: #000;
+}
+.reactnative {
+  background-color: #61dafb;
+  color: #000;
+}
+.typescript {
+  background-color: #3178c6;
+}
+.css {
+  background-color: #1572b6;
+}
+.django {
+  background-color: #092e20;
+}
+.python {
+  background-color: #3776ab;
+}
+.postgresql {
+  background-color: #336791;
+}
+.nodejs {
+  background-color: #339933;
+  color: white;
+}
+.godot {
+  background-color: #478cbf;
+}
 
-.github { background-color: #181717; }
-.docker { background-color: #2496ED; }
-.jira { background-color: #0052CC; }
+.github {
+  background-color: #181717;
+}
+.docker {
+  background-color: #2496ed;
+}
+.jira {
+  background-color: #0052cc;
+}
 
+.copilot {
+  background-color: #00b4ab;
+}
+.vscode {
+  background-color: #007acc;
+}
 
-.copilot { background-color: #00B4AB; }
-.vscode { background-color: #007ACC; }
-
-
-.windsurf { background-color: #00A0D2; }
-.claude { background-color: #D97706; }
-.geminiai { background-color: #2196f3; }
-.ubuntu { background-color: #E95420; }
+.claude {
+  background-color: #d97706;
+}
+.geminiai {
+  background-color: #2196f3;
+}
+.ubuntu {
+  background-color: #e95420;
+}
 
 /* Testing Framework Colors */
-.jest { background-color: #C21325; color: white; }
-.reacttestinglibrary { background-color: #E33332; color: white; }
-.pytest { background-color: #0A9EDC; color: white; }
-.pytestdjango { background-color: #0A9EDC; color: white; }
-
+.jest {
+  background-color: #c21325;
+  color: white;
+}
+.reacttestinglibrary {
+  background-color: #e33332;
+  color: white;
+}
+.pytest {
+  background-color: #0a9edc;
+  color: white;
+}
+.pytestdjango {
+  background-color: #0a9edc;
+  color: white;
+}
 
 .projects {
   background-color: #555;
@@ -240,7 +289,7 @@
     max-width: none;
     height: 100%;
   }
-  
+
   .project:hover .image {
     transform: translateX(-50%) scale(1.1);
   }
@@ -302,8 +351,14 @@
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .closeButton {
@@ -388,7 +443,7 @@
 }
 
 .circularProgress {
-  color: #4CAF50 !important;
+  color: #4caf50 !important;
 }
 
 .carouselImage {
@@ -482,7 +537,7 @@
 .visitButton {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 4px;
@@ -496,13 +551,13 @@
   background-color: #45a049;
 }
 
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1280px) {
   .container {
     width: 1000px;
   }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   .container {
     padding: 20px;
     width: calc(100vw - 40px);
