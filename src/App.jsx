@@ -4,6 +4,10 @@ import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import DartsScores from "./assets/darts-scores.png";
 import DartsScores2 from "./assets/darts-scores-2.png";
 import DartsScores3 from "./assets/darts-scores-3.png";
+import CineKanta1 from "./assets/cinekanta-1.png";
+import CineKanta2 from "./assets/cinekanta-2.png";
+import CineKanta3 from "./assets/cinekanta-3.png";
+import CineKanta4 from "./assets/cinekanta-4.png";
 import GridSnap from "./assets/grid-snap.png";
 import GridSnap2 from "./assets/grid-snap-2.png";
 import MatchTrip from "./assets/matchtrip.png";
@@ -111,6 +115,9 @@ const App = () => {
               </div>
               <div className={`${styles.technology} ${styles.postgresql}`}>
                 PostgreSQL
+              </div>
+              <div className={`${styles.technology} ${styles.supabase}`}>
+                Supabase
               </div>
               <div className={`${styles.technology} ${styles.godot}`}>
                 Godot
@@ -238,6 +245,54 @@ const App = () => {
               </div>
             </div>
 
+            {/* Cinekanta */}
+            <div
+              onClick={() =>
+                openProject({
+                  title: "Cinekanta",
+                  images: [CineKanta1, CineKanta2, CineKanta3, CineKanta4],
+                  description:
+                    "Web app for adding movies to watchlist and rate them",
+                  technologies: [
+                    "React",
+                    "Typescript",
+                    "CSS",
+                    "Node.js",
+                    "Supabase",
+                  ],
+                  link: "https://github.com/vtcoding/cinekanta",
+                })
+              }
+              className={styles.project}
+            >
+              <div className={styles.projectTitle}>Cinekanta</div>
+              <img className={styles.image} src={CineKanta1} />
+              <div className={styles.projectDescription}>
+                Web app for adding movies to watchlist and rate them
+              </div>
+              <div className={styles.projectTechnologies}>
+                <div className={`${styles.projectTechnology} ${styles.react}`}>
+                  React
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.typescript}`}
+                >
+                  Typescript
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.css}`}>
+                  CSS
+                </div>
+                <div className={`${styles.projectTechnology} ${styles.nodejs}`}>
+                  CSS
+                </div>
+                <div
+                  className={`${styles.projectTechnology} ${styles.supabase}`}
+                >
+                  Supabase
+                </div>
+              </div>
+            </div>
+
             {/* Gridsnap */}
             <div
               onClick={() =>
@@ -268,59 +323,6 @@ const App = () => {
                 </div>
                 <div className={`${styles.projectTechnology} ${styles.css}`}>
                   CSS
-                </div>
-              </div>
-            </div>
-
-            {/* Matchtrip */}
-            <div
-              onClick={() =>
-                openProject({
-                  title: "Matchtrip",
-                  images: [MatchTrip, MatchTrip, MatchTrip],
-                  description:
-                    "Web App for searching sport fixtures inside specific kilometer range and timerange",
-                  technologies: [
-                    "React",
-                    "Typescript",
-                    "CSS",
-                    "Django",
-                    "Python",
-                    "PostgreSQL",
-                  ],
-                  link: null,
-                })
-              }
-              className={styles.project}
-            >
-              <div className={styles.projectTitle}>Matchtrip</div>
-              <img className={styles.image} src={MatchTrip} />
-              <div className={styles.projectDescription}>
-                Web App for searching sport fixtures inside specific kilometer
-                range and timerange
-              </div>
-              <div className={styles.projectTechnologies}>
-                <div className={`${styles.projectTechnology} ${styles.react}`}>
-                  React
-                </div>
-                <div
-                  className={`${styles.projectTechnology} ${styles.typescript}`}
-                >
-                  Typescript
-                </div>
-                <div className={`${styles.projectTechnology} ${styles.css}`}>
-                  CSS
-                </div>
-                <div className={`${styles.projectTechnology} ${styles.django}`}>
-                  Django
-                </div>
-                <div className={`${styles.projectTechnology} ${styles.python}`}>
-                  Python
-                </div>
-                <div
-                  className={`${styles.projectTechnology} ${styles.postgresql}`}
-                >
-                  PostgreSQL
                 </div>
               </div>
             </div>

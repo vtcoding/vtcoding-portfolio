@@ -168,6 +168,9 @@
 .postgresql {
   background-color: #336791;
 }
+.supabase {
+  background-color: #3ecf8e;
+}
 .nodejs {
   background-color: #339933;
   color: white;
